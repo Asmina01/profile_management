@@ -119,7 +119,7 @@ def profile_form(request):
 def project_form(request):
     Project = project.objects.all()
     if request.method == 'POST':
-        form = projectform(request.POST)
+        form = projectform(request.POST,request.FILES)
         if form.is_valid():
             Project = form.save(commit=False)
             Project.user = request.user
