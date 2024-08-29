@@ -237,7 +237,7 @@ def add_skill(request):
 
     skill= Skill.objects.all()
     if request.method == 'POST':
-        form = SkillForm(request.POST)
+        form = SkillForm(request.POST,request.FILES)
         if form.is_valid():
             skill = form.save(commit=False)
             skill.user = request.user
