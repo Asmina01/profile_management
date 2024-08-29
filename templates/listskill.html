@@ -1,0 +1,47 @@
+{% extends 'userindex.html' %}
+{% load static %}
+
+{% block content %}
+
+{% csrf_token %}
+<style>
+    .progress-bar-container {
+    background-color: #e9ecef;
+    border-radius: 4px;
+    height: 20px;
+    width: 100%;
+    position: relative;
+    margin: 5px 0;
+}
+
+.progress-bar {
+    background-color: #007BFF;
+    height: 100%;
+    border-radius: 4px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: width 0.3s;
+}
+</style>
+    <div class="container">
+        <h2>My Skills</h2>
+        <ul>
+            {% for skill in skills %}
+                <li>
+                    <strong>{{ skill.name }}</strong>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: {{ skill.percentage }}%;">{{ skill.percentage }}%</div>
+                    </div>
+
+                </li>
+             <a class="icon-link" href="{% url 'deleteskill' skill.id%}">Delete<svg class="bi" aria-hidden="true"><use xlink:href="#arrow-right"></use></svg>
+            </a>
+             <a class="icon-link" href="{% url 'updateskill' skill.id%}">update<svg class="bi" aria-hidden="true"><use xlink:href="#arrow-right"></use></svg>
+            </a>
+
+            {% endfor %}
+        </ul>
+
+    </div>
+{% endblock %}

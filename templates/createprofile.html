@@ -1,0 +1,21 @@
+
+{% extends 'userindex.html' %}
+{% load static %}
+
+{% block content %}
+
+<div><h3>create profile   </h3></div>
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+
+    <input type="submit" value="submit">
+
+
+
+
+
+</form>
+
+{% endblock%}

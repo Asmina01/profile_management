@@ -1,0 +1,26 @@
+
+
+{% extends 'userindex.html' %}
+{% load static %}
+
+{% block content %}
+
+<div>
+<h3>Book Details</h3>
+    <a href="{% url 'update' Project.id %}" class="btn btn-primary btn-round">update </a>
+</div><br>
+
+    <img src="{{ Project.image.url }}" alt="">
+
+
+    <div class="class-body"><br>
+
+        <h2><U>{{ Project.project_name }}</u></h2>
+         <a href="{{ Project.link }}">{{ Project.link }}</a>
+        <h5>{{ Project.description }}</h5>
+    </div>
+
+
+
+
+{% endblock%}

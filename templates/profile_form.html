@@ -1,0 +1,43 @@
+{% extends 'userindex.html' %}
+{% load static %}
+
+{% block content %}
+<body>
+    <h1>Edit Your Details</h1>
+    <form method="post" >
+        <form method="POST" enctype="multipart/form-data" action="{% url 'profile_form' %}">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="name" class="form-label">Name:</label>
+        <input type="text" class="form-control" id="name" name="name" value="{{ form.name.value }}">
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" name="email" value="{{ form.email.value }}">
+    </div>
+    <div class="mb-3">
+        <label for="bio" class="form-label">Bio</label>
+        <textarea class="form-control" id="bio" name="bio">{{ form.bio.value }}</textarea>
+    </div>
+    <div class="mb-3">
+        <label for="skills" class="form-label">Skills</label>
+        <input type="text" class="form-control" id="skills" name="skills" value="{{ form.skills.value }}">
+    </div>
+    <div class="mb-3">
+        <label for="contact" class="form-label">Contact</label>
+        <input type="text" class="form-control" id="contact" name="contact" value="{{ form.contact.value }}">
+    </div>
+    <div class="mb-3">
+        <label for="profile_picture" class="form-label">Profile Picture</label>
+        <input type="file" class="form-control" id="profile_picture" name="profile_picture">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+
+
+
+    <a href="{% url 'userindex' %}">Back to Profile</a>
+{% endblock %}
